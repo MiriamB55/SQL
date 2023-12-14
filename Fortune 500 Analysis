@@ -88,11 +88,10 @@ FROM fortune_companies
 WHERE revenue>200;
 
 #How many companies in each industry have a revenue >200B (This is off, needs fixing)
-SELECT industry, 
-COUNT(company_name) as "companies>200B_revenue"
+SELECT industry, COUNT(company_name) as "companies>200B_revenue"
 FROM fortune_companies
-GROUP BY industry
-HAVING revenue>=200;
+Where revenue>=200
+GROUP BY industry;
 
 #Which healthcare company had the most revenue
 SELECT company_name, max(revenue)
