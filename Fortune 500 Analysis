@@ -87,7 +87,7 @@ SELECT COUNT(revenue)
 FROM fortune_companies
 WHERE revenue>200;
 
-#How many companies in each industry have a revenue >200B (This is off, needs fixing)
+#How many companies in each industry have a revenue >200B 
 SELECT industry, COUNT(company_name) as "companies>200B_revenue"
 FROM fortune_companies
 Where revenue>=200
