@@ -64,7 +64,21 @@ FROM BIT_DB.Spotifydata
 GROUP BY artist_name
 HAVING popular > 89.999;
 
-#Does the energy affect danceability in a noticeable way?
+#Does the energy affect danceability in a noticeable way?;
 SELECT energy, danceability
 FROM BIT_DB.Spotifydata
 ORDER BY energy desc;
+
+#Calculate the average popularity for the artists in the Spotify data table. Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.;
+WITH average_popularity AS (
+SELECT AVG(popularity) AS popular,
+artist_name
+FROM Spotifydata
+GROUP BY artist_name
+)
+SELECT artist_name,
+popular,
+'Top Star' AS tag
+FROM average_popularity
+WHERE popular>=90
+ORDER BY popular desc;
