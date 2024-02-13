@@ -1,0 +1,20 @@
+#Show Customers (their full names, customer ID, and country) who are not in the US. 
+SELECT customerId, FirstName, LastName, Country
+FROM chinook.customers
+WHERE country <> 'USA';
+
+SELECT * FROM chinook.customers
+WHERE country = 'Brazil';
+
+SELECT employees.Firstname, employees.lastname, employees.title
+FROM chinook.employees
+WHERE employees.title = 'Sales Support Agent';
+
+SELECT DISTINCT BillingCountry FROM chinook.Invoices ;
+
+SELECt employees.firstname, employees.LastName, invoices.InvoiceId
+FROM chinook.employees
+JOIN chinook.customers ON employees.EmployeeId = customers.SupportRepId
+JOIN chinook.invoices ON customers.CustomerId = invoices.CustomerId;
+
+
