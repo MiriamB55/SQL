@@ -97,7 +97,7 @@ GROUP BY employees.EmployeeId
 )
 SELECT employees.FirstName, employees.LastName, total_sales_2009.total_sales
 FROM chinook.employees
-JOIN total_sales_2009
+JOIN total_sales_2009 ON total_sales_2009.employeeid = employees.EmployeeId
 ORDER BY total_sales desc
 LIMIT 1;
 
