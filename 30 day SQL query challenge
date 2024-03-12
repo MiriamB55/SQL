@@ -45,3 +45,66 @@ SELECT brand1, brand2, year, custom1, custom2, custom3, custom4
 FROM cte2
 WHERE rn=1
 OR (custom1 <> custom3 AND custom2 <> custom4);
+
+--day 12 SQL query challenge
+PROBLEM STATEMENT: 
+Given graph shows the hierarchy of employees in a company. 
+Write an SQL query to split the hierarchy and show the employees corresponding to their team.
+
+
+CREATE TABLE company
+(
+	employee	varchar(10) primary key,
+	manager		varchar(10)
+);
+
+INSERT INTO company values ('Elon', null);
+INSERT INTO company values ('Ira', 'Elon');
+INSERT INTO company values ('Bret', 'Elon');
+INSERT INTO company values ('Earl', 'Elon');
+INSERT INTO company values ('James', 'Ira');
+INSERT INTO company values ('Drew', 'Ira');
+INSERT INTO company values ('Mark', 'Bret');
+INSERT INTO company values ('Phil', 'Mark');
+INSERT INTO company values ('Jon', 'Mark');
+INSERT INTO company values ('Omid', 'Earl');
+
+Select * from company;
+
+Select employee
+FROM company overlord
+WHERE manager is NULL;
+
+Select 'Team '|| row_number() over(order by mng1.employee) as Team, mng1.employee
+FROM company overlord
+Join company mng1 ON overlord.employee = mng1.manager
+WHERE overlord.manager is NULL;
+
+with recursive cte as
+    (
+    select 
+        comp.employee, 
+        comp.manager, 
+        t.team
+    from company comp
+    cross join cte_team t 
+    where comp.manager is null
+    union 
+        select comp.employee, comp.manager,
+        case when t.team is not null then t.team
+	else case when comp.manager = cte.employee then cte.team end 
+         end as team  
+         from company comp
+         join cte on cte.employee = comp.manager	
+         left join cte_team t on t.employee = comp.employee
+     ),
+     cte_team as
+     (SELECT 'Team ' || row_number() over(order by mang.employee) as team, mang.employee
+         FROM company overlord
+         join company mang on overlord.employee = mang.manager
+         where overlord.manager is null)
+select team, Group_concat(employee, ', ') as members
+from cte 
+group by team
+order by team;
+
