@@ -1,0 +1,27 @@
+**Create inital Table**
+
+Create Table BIT_DB_All_Titles (
+Owned_scanned varchar Not NULL,
+Age_Level varchar NOT NULL,
+Title varchar NOT NULL,
+Author varchar NOT NULL,
+Illustrator varchar NOT NULL,
+Publisher varchar NOT NULL,
+Distributer varchar NOT NULL,
+Year interger NOT NULL,
+Pages interger NOT NULL,
+ISBN varchar NOT NULL,
+Price_at_Publicatioin decimal (2,2) NOT NULL,
+Siza varchar NOT NULL,
+Link varchar NOT NULL,
+Series varchar NOT NULL,
+Format varchar NOT NULL,
+Genre varchar NOT NULL,
+Translator_Intro_Other varchar Not NULL,
+Subjects varchar NOT NULL,
+Repr_Year interger NOT NULL)
+
+**Ensure data loaded correctly**
+SELECT * 
+FROM BIT_DB.BIT_DB_All_Titles
+LIMIT 20;
