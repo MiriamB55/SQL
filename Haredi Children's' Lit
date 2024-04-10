@@ -66,3 +66,20 @@ Repr_year interger NOT NULL,
 Description varchar NOT NULL,
 link varchar NOT NULL)
 
+**Identify differences in publisher info**
+
+SELECT Title, Year, Publisher
+FROM BIT_DB.BIT_DB_All_Titles
+WHERE Publisher like '%Artscrol%'
+ORDER BY Year;
+
+SELECT Title, Year, Publisher
+FROM BIT_DB.BIT_DB_All_Titles
+WHERE Publisher like '%Feld%'
+ORDER BY Year;
+
+SELECT Title, Year, Publisher
+FROM BIT_DB.BIT_DB_All_Titles
+WHERE Publisher like '%Targum%'
+ORDER BY Year;
+
