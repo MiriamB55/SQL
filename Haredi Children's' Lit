@@ -1,6 +1,6 @@
 **Create inital Table**
 
-Create Table BIT_DB_All_Titles (
+Create Table BIT_DB.All_Titles (
 Owned_scanned varchar Not NULL,
 Age_Level varchar NOT NULL,
 Title varchar NOT NULL,
@@ -22,6 +22,47 @@ Subjects varchar NOT NULL,
 Repr_Year interger NOT NULL)
 
 **Ensure data loaded correctly**
+
 SELECT * 
 FROM BIT_DB.BIT_DB_All_Titles
 LIMIT 20;
+
+
+**Create and Import Comics Table**
+
+CREATE TABLE BIT_DB.Comics (
+Title varchar NOT NULL,
+Author varchar NOT NULL,
+Illustrator varchar NOT NULL,
+Publisher varchar NOT NULL,
+Year interger NOT NULL,
+Pages interger NOT NULL,
+ISBN varchar NOT NULL,
+Price_at_publication decimal (2,2) NOT NULL,
+Size varchar NOT NULL,
+Series varchar NOT NULL,
+Format varchar NOT NULL,
+Genre varchar NOT NULL,
+Subjects varchar NOT NULL,
+Repr_year interger NOT NULL,
+link varchar NOT NULL)
+
+**Create and Import Non-Haredi Titles Table**
+
+CREATE TABLE BIT_DB.Non_Haredi_Titles (
+Title varchar NOT NULL,
+Author varchar NOT NULL,
+Illustrator varchar NOT NULL,
+Publisher varchar NOT NULL,
+Unknown varchar NOT NULL,
+Year interger NOT NULL,
+Age_Level varchar NOT NULL,
+Owned_Scanned varchar NOT NULL,
+Series varchar NOT NULL,
+Genre varchar NOT NULL,
+Translator_Intro_Other varchar NOT NULL,
+Subjects varchar NOT NULL,
+Repr_year interger NOT NULL,
+Description varchar NOT NULL,
+link varchar NOT NULL)
+
