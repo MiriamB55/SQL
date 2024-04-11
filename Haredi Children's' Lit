@@ -102,3 +102,12 @@ FROM BIT_DB.BIT_DB_All_Titles
 WHERE Publisher like '%Targum%'
 ORDER BY Year;
 
+**Are there years where the researcher has had a gap in what they have access to?**
+
+SELECT BIT_DB_All_Titles.Owned_scanned, Comics.Title, BIT_DB_All_Titles.Year
+FROM BIT_DB.BIT_DB_All_Titles
+RIGHT JOIN BIT_DB.Comics
+ON Comics.Title = BIT_DB_All_Titles.Title
+ORDER BY BIT_DB_All_Titles.Year;
+**Showed researcher has had acess to majority of coimcs published, but has not yet seen any from most recent year. Perhaps due to libraries ordering process.**
+
