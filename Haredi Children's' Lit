@@ -66,6 +66,25 @@ Repr_year interger NOT NULL,
 Description varchar NOT NULL,
 link varchar NOT NULL)
 
+**Create and Import History Table**
+
+CREATE TABLE BIT_DB.History (
+Title varchar NOT NULL,
+Author varchar NOT NULL,
+Illustrator varchar NOT NULL,
+Publisher varchar NOT NULL,
+Distributer varchar NOT NULL,
+Year interger NOT NULL,
+Age_Level varchar NOT NULL,
+Owned_Scanned varchar NOT NULL,
+Series varchar NOT NULL,
+Genre varchar NOT NULL,
+Translator_Intro_Other varchar NOT NULL,
+Subjects varchar NOT NULL,
+Repr_year interger NOT NULL,
+Description varchar NOT NULL,
+link varchar NOT NULL)
+
 **Identify differences in publisher info**
 
 SELECT Title, Year, Publisher
