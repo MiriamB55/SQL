@@ -113,7 +113,7 @@ ON Comics.Title = BIT_DB_All_Titles.Title
 ORDER BY BIT_DB_All_Titles.Year;
 **Showed researcher has had acess to majority of coimcs published, but has not yet seen any from most recent year. Perhaps due to libraries ordering process.**
 
-**Start to see ratio of seen vs. unseen titles**
+**Start to see ratio of seen vs. unseen titles by publisher**
 SELECT Title, Year, Owned_Scanned
 FROM BIT_DB.BIT_DB_All_Titles
 WHERE Publisher like '%Arts%'
